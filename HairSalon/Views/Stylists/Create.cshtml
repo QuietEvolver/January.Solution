@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+
+@model HairSalon.Models.Sylist
+
+<h4>Add a new stylist</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.StylistId)
+
+    @Html.LabelFor(model => model.StylistName)
+    @Html.TextBoxFor(model => model.StylistName)
+
+    @Html.LabelFor(model => model.Stylist)
+    @Html.DropDownList("StylistId")
+//Enter in appointment time/specialty options by if this stylistid==this specialtyid then book if appt.timeslot ==null.
+    <input type="submit" value="Add new stylist" class="btn btn-default" />
+}
+<p>@Html.ActionLink("Show all stylists", "Index")</p>
