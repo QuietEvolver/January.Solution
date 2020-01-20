@@ -18,56 +18,56 @@ namespace HairSalon.Controllers
 
     public ActionResult Index()
     {
-      List<Stylist> model = _db.Stylists.Include(stylists => stylists.Client)ToList();
+      List<Stylist> model = _db Stylists.Include(stylists => stylists.Client)ToList();
       return View(model);
     }
 
     public ActionResult Create()
     {
-      ViewBag.ClientId = new SelectList(_db.Clients, "ClientId", "ClientName");
+      ViewBag.StylistId = new SelectList(_db.Stylists, "StylistId", "StylistName");
       return View();
     }
 
     [HttpPost]
-    public ActionResult Create(Stylist client)
+    public ActionResult Create(Stylist style)
     {
-      _db.Stylists.Add(client);
+      _db Stylists.Add(style);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
 
     public ActionResult Details(int id)
     {
-      Stylist thisStylist = _db.Stylists.FirstOrDefault(stylists => stylists.Stylist == id); //client.StylistId == id);
+      Stylist thisStylist = _db Stylists.FirstOrDefault(styles => styles.StylistId == id); //style.StylistId == id);
       return View(thisStylist);
     }
 
     public ActionResult Edit(int id)
     {
-      var thisStylist = _db.Stylists.FirstOrDefault(clients => clients.ClientId == id);
-      ViewBag.Client.Id = new SelectList(_db.Clients, "ClientId", "ClientId");
+      var thisStylist = _db Stylists.FirstOrDefault(styles => styles.StylistId == id);
+      ViewBag.StylistId = new SelectList(_db.Stylists, "StylistId", "StylistId");
       return View(thisStylist);
     }
 
     [HttpPost]
-    public ActionResult Edit(Stylist client)
+    public ActionResult Edit(Stylist style)
     {
-      _db.Entry(client).State = EntityState.Modified;
+      _db.Entry(style).State = EntityState.Modified;
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
 
     public ActionResult Delete(int id)
     {
-      var thisStylist = _db.Stylists.FirstOrDefault(client => client.StylistId == id);
+      var thisStylist = _db Stylists.FirstOrDefault(styles => styles.StylistId == id);
       return View(thisStylist);
     }
 
     [HttpPost, ActionName("Delete")]
     public ActionResult DeleteConfirmed(int id)
     {
-      var thisStylist = _db.Stylists.FirstOrDefault(stylists => stylists.StylistId == id);// ManytoMany(client => client.StylistId == id);
-      _db.Stylists.Remove(thisStylist);
+      var thisStylist = _db.Stylists.FirstOrDefault(stylists => stylists.StylistId == id);// ManytoMany(style => style.StylistId == id);
+      _db Stylists.Remove(thisStylist);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
