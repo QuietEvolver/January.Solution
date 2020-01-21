@@ -20,40 +20,26 @@
 
 <p>@Html.ActionLink("Add new client", "Create")</p>
 
-@*<p>@Html.ActionLink("Add new Appointment", "Create", new $"{client => stylist.ClientTimeSlot}"")</p>*@
-
+@*<p>Html.ActionLink("Add new Appointment", "Create", new $"{client => stylist.ClientTimeSlot}")</p>
 <p>@Html.ActionLink("Add new stylist", "Create", "Stylist")</p>
-*@
-<p>@Html.ActionLink("Home", "Index", "Home")</p>
-
-
-
-@*
 <p>@Html.ActionLink("Delete from client(s)", "Delete", "Client">
-
 <p>@Html.ActionLink("Add appointment for client", "Index", "Create")</p>
-
 //new appointment
 <ul>
   @foreach (Model model in Model)
   {
       @Html.HiddenFor(model => model.ClientId)
       @Html.HiddenFor(model => model.StylistId)
-
-
-    <li>@ViewBag($"{client.clientname}", "Details", new{ client.ClientId})</li> @*+ client.ClientTimeSlot + clientname.ClientTimeSlot}) </li>*@
+    <li>@ViewBag($"{client.clientname}", "Details", new{ client.ClientId})</li> 
+    + client.ClientTimeSlot + clientname.ClientTimeSlot}) </li>
   }
-    @if( stylist.StylistTimeSlot && client.ClientTimeSlot == null)
-    
-      <p>@using (Html.BeginForm())
-</p>
+    @if( stylist.StylistAppppointmentTimeSlot && client.ClientTimeSlot == null)
+    {
+      <p>@using Html.BeginForm()</p>
     @if{  
-      @ViewBag($"{client.clientname", "Details"}")
-    
-      @ViewBag($"{stylist.stylistname", "Details"}")
-    
-     
-      <p>Appointment conflict; Book another Time Slot. </p>
+      client.ClientAppointmentTimeSlot==stylist.StylistAppointmentTimeSlot
+
+      @Html(<p>Appointment conflict; Book another Time Slot.</p>)
       @Html.HiddenFor(model => model.ClientId)
 
       @Html.LabelFor(model => model.ClientName)
@@ -66,4 +52,6 @@
     }
     
   }
-</ul>}
+</ul>*@
+
+(@Html.ActionLink("Home", "Index", "Home"))
