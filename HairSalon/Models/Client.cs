@@ -12,9 +12,9 @@ namespace HairSalon.Models
 
     public int ClientId { get; set; } 
     // public string RequestedSpecialtyType { get; set; } ///Type
-    public string ClientName { get; set; } //Name
+    public string ClientName { get; set; }
     // public string ClientAddress { get; set; } //(Date field deleted)Gender
-    // public int ClientPhone { get; set; } //Breed
+    // public int ClientPhone { get; set; } 
     public int StylistId { get; set; }
     
     public virtual ICollection<Stylist> Stylists { get; set; }
