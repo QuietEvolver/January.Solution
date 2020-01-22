@@ -1,10 +1,9 @@
-using System; 
 using Microsoft.AspNetCore.Mvc;
 using HairSalon.Models;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Mvc.Rendering; //NLn.
+// using Microsoft.AspNetCore.Mvc.Rendering; //NLn.
 
 namespace HairSalon.Controllers
 {
@@ -62,7 +61,7 @@ namespace HairSalon.Controllers
 
     public ActionResult Delete(int id)
     {
-      var thisClient = _db.Clients.FirstOrDefault(clients => clients.ClientId == id);
+      var thisClient = _db.Clients.FirstOrDefault(client => client.ClientId == id);
       return View(thisClient);
     }
 

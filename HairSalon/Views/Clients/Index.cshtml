@@ -14,14 +14,13 @@
 <ul>
   @foreach (Client client in Model)
   {
-    <li><@Html.ActionLink($"{client.clientname}", "Index", new{ id = client.ClientId }) </li>
-    <li>@Html.ActionLink($"{item.Description}", "Details", new { id = item.ItemId }) | @item.Category.Name</li>
+    <li><@Html.ActionLink($"{client.ClientName}", "Index", new { id = client.ClientId})</li> 
   }
 </ul>
 
 <p>@Html.ActionLink("Add new client", "Create")</p>
 
-@*<p>Html.ActionLink("Add new Appointment", "Create", new $"{client => stylist.ClientTimeSlot}")</p>
+@*<p>Html.ActionLink("Add new Appointment", "Create", new $"{client => stylist.ClientTimeSlot}")</p>| @stylist.Client.ClientName
 <p>@Html.ActionLink("Add new stylist", "Create", "Stylist")</p>
 <p>@Html.ActionLink("Delete from client(s)", "Delete", "Client">
 <p>@Html.ActionLink("Add appointment for client", "Index", "Create")</p>
@@ -40,7 +39,7 @@
     @if{  
       client.ClientAppointmentTimeSlot==stylist.StylistAppointmentTimeSlot
 
-      @Html(<p>Appointment conflict; Book another Time Slot.</p>)
+      <p>Appointment conflict; Book another Time Slot.</p>
       @Html.HiddenFor(model => model.ClientId)
 
       @Html.LabelFor(model => model.ClientName)
@@ -54,5 +53,3 @@
     
   }
 </ul>*@
-
-<p>(@Html.ActionLink("Home", "Index", "Home"))</p>

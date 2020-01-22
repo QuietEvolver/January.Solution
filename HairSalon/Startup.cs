@@ -28,7 +28,7 @@ namespace HairSalon
         .AddDbContext<HairSalonContext>(options => options
         .UseMySql(Configuration["ConnectionStrings:DefaultConnection"]));
     }
-
+  
     public void Configure(IApplicationBuilder app)
     {
       app.UseStaticFiles();
@@ -47,9 +47,5 @@ namespace HairSalon
         await context.Response.WriteAsync("Something went wrong!");
       });
     }
-  }
-  public static class DBConfiguration
-  {
-    public static string ConnectionString = "server=localhost;user id=root;port=3306;database=vera_weikel_db;";
   }
 }
