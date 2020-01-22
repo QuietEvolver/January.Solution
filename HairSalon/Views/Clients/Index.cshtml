@@ -14,7 +14,8 @@
 <ul>
   @foreach (Client client in Model)
   {
-    <li><@Html.ActionLink($"{client.clientname}", "Details", new{ id = client.ClientId }) </li>
+    <li><@Html.ActionLink($"{client.clientname}", "Index", new{ id = client.ClientId }) </li>
+    <li>@Html.ActionLink($"{item.Description}", "Details", new { id = item.ItemId }) | @item.Category.Name</li>
   }
 </ul>
 
@@ -54,4 +55,4 @@
   }
 </ul>*@
 
-(@Html.ActionLink("Home", "Index", "Home"))
+<p>(@Html.ActionLink("Home", "Index", "Home"))</p>

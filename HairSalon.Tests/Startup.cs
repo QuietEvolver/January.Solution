@@ -25,7 +25,7 @@ namespace HairSalon.Tests
       services.AddMvc();
 
       services.AddEntityFrameworkMySql()
-        .AddDbContext<HairSalonContext>(options => options
+        .AddDbContext<HairSalon.Tests.Context>(options => options
         .UseMySql(Configuration["ConnectionStrings:DefaultConnection"]));
     }
 
@@ -44,7 +44,7 @@ namespace HairSalon.Tests
 
       app.Run(async (context) =>
       {
-        await context.Response.WriteAsync("Something went wrong!");
+        await context.Response.WriteAsync("Something in this test went wrong!");
       });
     }
   }

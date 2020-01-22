@@ -48,4 +48,8 @@ namespace HairSalon
       });
     }
   }
+  public static class DBConfiguration
+  {
+    public static string ConnectionString = "server=localhost;user id=root;port=3306;database=vera_weikel_db;";
+  }
 }

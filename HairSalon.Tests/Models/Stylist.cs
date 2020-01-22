@@ -7,53 +7,53 @@ using MySql.Data.MySqlClient;
 namespace HairSalon.Tests
 {
   [TestClass]
-  public class ClientTest : IDisposable
+  public class StylistTest : IDisposable
   {
     public void Dispose()
     {
-      Client.ClearAll();
+      Stylist.ClearAll();
     }
-
-    public ClientTest()
+    
+    public StylistTest()
     {
-      DBConfiguration.ConnectionString = "server=localhost;user id=root;password=epicodus;port=3306;database=vera_weikel_db_test;";
+      DBConfiguration.ConnectionString = "server=localhost;port=3306;database=vera_weikel_db_test;";
     }
 
     // [TestMethod]
-    // public void ClientConstructor_CreatesInstanceOfClient_Client()
+    // public void StylistConstructor_CreatesInstanceOfStylist_Stylist()
     // {
-    //   Client newClient = new Client("test");
-    //   Assert.AreEqual(typeof(Client), newClient.GetType());
+    //   Stylist newStylist = new Stylist("test");
+    //   Assert.AreEqual(typeof(Stylist), newStylist.GetType());
     // }
 
     // [TestMethod]
-    // public void GetClientName_ReturnsClientName_String()
+    // public void GetStylistName_ReturnsStylistName_String()
     // {
     //   //Arrange
-    //   string clientName = "AJ";
+    //   string stylistName = "AJ";
 
     //   //Act
-    //   Client newClient = new Client(clientName);
-    //   string result = newClient.ClientName;
+    //   Stylist newStylist = new Stylist(stylistName);
+    //   string result = newStylist.StylistName;
 
     //   //Assert
-    //   Assert.AreEqual(clientName, result);
+    //   Assert.AreEqual(stylistName, result);
     // }
 
     // [TestMethod]
-    // public void SetClientName_SetClientName_String()
+    // public void SetStylistName_SetStylistName_String()
     // {
     //   //Arrange
-    //   string clientName = "AJ";
-    //   Client newClient = new Client(clientName);
+    //   string stylistName = "AJ";
+    //   Stylist newStylist = new Stylist(stylistName);
 
     //   //Act
-    //   string updatedClientName = "Do the dishes";
-    //   newClient.ClientName = updatedClientName;
-    //   string result = newClient.ClientName;
+    //   string updatedStylistName = "Vijay";
+    //   newStylist.StylistName = updatedStylistName;
+    //   string result = newStylist.StylistName;
 
     //   //Assert
-    //   Assert.AreEqual(updatedClientName, result);
+    //   Assert.AreEqual(updatedStylistName, result);
     // }
 
     [TestMethod]
@@ -89,14 +89,14 @@ namespace HairSalon.Tests
     }
 
     // [TestMethod]
-    // public void GetId_ClientsInstantiateWithAnIdAndGetterReturns_Int()
+    // public void GetId_StylistsInstantiateWithAnIdAndGetterReturns_Int()
     // {
     //   //Arrange
-    //   string clientName = "AJ";
-    //   Client newClient = new Client(clientName);
+    //   string stylistName = "AJ";
+    //   Stylist newStylist = new Stylist(stylistName);
 
     //   //Act
-    //   int result = newClient.Id;
+    //   int result = newStylist.Id;
 
     //   //Assert
     //   Assert.AreEqual(1, result);
@@ -121,7 +121,7 @@ namespace HairSalon.Tests
     public void Equals_ReturnsTrueIfStylistNamesAreTheSame_Stylist()
     {
       // Arrange, Act
-      Stylist firstStylist = new Stylist("Sarge");
+      Stylist firstStylist = new Stylist("Della");
       Stylist secondStylist = new Stylist("Della");
 
       // Assert
@@ -132,7 +132,7 @@ namespace HairSalon.Tests
     public void Save_SavesToDatabase_StylistList()
     {
       //Arrange
-      Stylist testStylist = new Stylist("Sarge");
+      Stylist testStylist = new Stylist("Della");
 
       //Act
       testStylist.Save();
